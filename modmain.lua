@@ -21,8 +21,8 @@ local function PositionCoordinates(controls, screensize)
 	local screenh = screenh_full/hudscale.y
 
 	controls.coordinates:SetPosition(
-		(anchor_horiz*controls.coordinates.coordssize.w/2)+(dir_horiz*screenw/2)+(margin_dir_horiz*margin_size_x), 
-		(anchor_vert*controls.coordinates.coordssize.h/2)+(dir_vert*screenh/2)+(margin_dir_vert*margin_size_y), 
+		(anchor_horiz*controls.coordinates.coordssize.w/2)+(dir_horiz*screenw/2)+(margin_dir_horiz*margin_size_x),
+		(anchor_vert*controls.coordinates.coordssize.h/2)+(dir_vert*screenh/2)+(margin_dir_vert*margin_size_y),
 		0
 	)
 end
