@@ -1,11 +1,11 @@
 name = "Coordinate"
 description = "A coordinates system to help communicate location data to other players."
 author = "Stuart Gilbert"
-version = "0.0.3"
+version = "0.0.4"
 priority = 3
 dst_compatible = true
-client_only_mod = false
-all_clients_require_mod = true
+client_only_mod = true
+all_clients_require_mod = false
 server_filter_tags = {"coordinates", "coords", "coordinate"}
 -- TODO
 forumthread = ""
