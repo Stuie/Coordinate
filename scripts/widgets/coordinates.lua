@@ -3,24 +3,24 @@ local ImageButton = require "widgets/imagebutton"
 
 local CoordinatesWidget = Class(Widget, function(self, mapscale)
     Widget._ctor(self, "CoordinatesWidget")
-	self.owner = ThePlayer
+    self.owner = ThePlayer
 
-	mapscale = mapscale or 1
+    mapscale = mapscale or 1
 
-	self.button = self:AddChild(ImageButton())
+    self.button = self:AddChild(ImageButton())
 
-	local coords_w, coords_h = self.button:GetSize()
-	local coords_w, coords_h = coords_w * mapscale, coords_h * mapscale
+    local coords_w, coords_h = self.button:GetSize()
+    local coords_w, coords_h = coords_w * mapscale, coords_h * mapscale
 
-	self.coordssize = {
-		w = coords_w,
-		h = coords_h
-	}
+    self.coordssize = {
+      w = coords_w,
+      h = coords_h
+    }
 
-	self.button:SetScale(.7, .7, .7)
-	self.button:SetText("Hello World")
-	self.button:SetClickable(false)
-	self.button:Show()
+    self.button:SetScale(.7, .7, .7)
+    self.button:SetText("Hello World")
+    self.button:SetClickable(false)
+    self.button:Show()
 end)
 
 return CoordinatesWidget
