@@ -1,21 +1,28 @@
 name = "Coordinate"
 description = "Shows your coordinates so you can navigate the world more easily."
 author = "Stuart Gilbert"
-version = "1.0"
+version = "1.0.0"
+icon_atlas = "Coordinate.xml"
+icon = "Coordinate.tex"
+
+-- Mod post on Klei forums
+forumthread = "/files/file/1039-coordinate/"
+
+-- Something important, I guess
 priority = 3
+
+-- Compatibility
+dont_starve_compatible = false
+reign_of_giants_compatible = false
 dst_compatible = true
+
+-- Client/server info
 client_only_mod = true
 all_clients_require_mod = false
 server_filter_tags = {"coordinates", "coords", "coordinate"}
--- TODO
-forumthread = ""
 
+-- Don't really know
 api_version = 10
-dont_starve_compatible = false
-reign_of_giants_compatible = false
-
-icon_atlas = "Coordinate.xml"
-icon = "Coordinate.tex"
 
 configuration_options = {
     {
