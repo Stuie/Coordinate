@@ -1,12 +1,42 @@
+local position_pref = GetModConfigData("Position")
+local margin_size_x = GetModConfigData("Horizontal Margin")
+local margin_size_y = GetModConfigData("Vertical Margin")
 
-local dir_vert = -2
-local dir_horiz = 1
-local anchor_vert = 1
-local anchor_horiz = -1
-local margin_dir_vert = 1
-local margin_dir_horiz = -1
-local margin_size_x = 0
-local margin_size_y = 175
+local dir_vert = 0
+local dir_horiz = 0
+local anchor_vert = 0
+local anchor_horiz = 0
+local margin_dir_vert = 0
+local margin_dir_horiz = 0
+local y_align, x_align = position_pref:match("(%a+)_(%a+)")
+
+if x_align == "left" then
+	dir_horiz = -1
+	anchor_horiz = 1
+	margin_dir_horiz = 1
+elseif x_align == "center" then
+	dir_horiz = 0
+	anchor_horiz = 0
+	margin_dir_horiz = 0
+elseif x_align == "right" then
+	dir_horiz = 1
+	anchor_horiz = -1
+	margin_dir_horiz = -1
+end
+
+if y_align == "top" then
+	dir_vert = 0
+	anchor_vert = -1
+	margin_dir_vert = -1
+elseif y_align == "middle" then
+	dir_vert = -1
+	anchor_vert = 0
+	margin_dir_vert = 0
+elseif y_align == "bottom" then
+	dir_vert = -2
+	anchor_vert = 1
+	margin_dir_vert = 1
+end
 
 local require = GLOBAL.require
 
@@ -19,11 +49,12 @@ local function PositionCoordinates(controls, screensize)
     local screenw = screenw_full/hudscale.x
     local screenh = screenh_full/hudscale.y
 
-    controls.coordinates:SetPosition(
-        (anchor_horiz*controls.coordinates.coordssize.w/2)+(dir_horiz*screenw/2)+(margin_dir_horiz*margin_size_x),
-        (anchor_vert*controls.coordinates.coordssize.h/2)+(dir_vert*screenh/2)+(margin_dir_vert*margin_size_y),
-        0
-    )
+    local position_x = (anchor_horiz * controls.coordinates.coordssize.w / 2)
+            + (dir_horiz * screenw / 2) + (margin_dir_horiz * margin_size_x)
+    local position_y = (anchor_vert * controls.coordinates.coordssize.h / 2)
+            + (dir_vert * screenh / 2) + (margin_dir_vert * margin_size_y)
+
+    controls.coordinates:SetPosition(position_x, position_y, 0)
 end
 
 -- Create a coordinates widget as a child of the controls widget

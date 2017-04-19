@@ -19,7 +19,7 @@ local CoordinatesWidget = Class(Widget, function(self, mapscale)
 
     self.button:SetScale(.7, .7, .7)
     self.button:SetText("Hello World")
-    self.button:SetClickable(false)
+    self.button:SetClickable(false) --TODO Make it send coords to chat
     self.button:Show()
 end)
 
